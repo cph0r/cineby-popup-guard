@@ -1,0 +1,20 @@
+{
+  "manifest_version": 3,
+  "name": "Cineby Popup Guard",
+  "version": "1.0.0",
+  "description": "Blocks pop-up and pop-under ads that open in new tabs on cineby.",
+  "permissions": ["tabs", "webNavigation", "storage"],
+  "background": { "service_worker": "background.js" },
+  "action": { "default_title": "Cineby Popup Guard" },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_start",
+      "all_frames": true,
+      "match_about_blank": true,
+      "match_origin_as_fallback": true,
+      "world": "MAIN"
+    }
+  ]
+}
